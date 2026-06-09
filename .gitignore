@@ -1,0 +1,14 @@
+# Django
+db.sqlite3
+__pycache__/
+*.pyc
+.env
+staticfiles/
+
+# Virtual Environment
+
+env/
+.venv/
+.venv-python38-broken/
+__pycache__/
+db.sqlite3
