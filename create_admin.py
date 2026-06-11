@@ -1,5 +1,11 @@
 import os
+import sys
 import django
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
+if str(BASE_DIR) not in sys.path:
+    sys.path.insert(0, str(BASE_DIR))
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings')
 django.setup()
@@ -17,7 +23,7 @@ if not User.objects.filter(username=username).exists():
     # 1. Create the admin user
     admin_user = User.objects.create_superuser(username=username, email=email, password=password)
     
-    # 2. Safely link their missing profile row
+    
     LearnerProfile.objects.get_or_create(
         user=admin_user,
         defaults={

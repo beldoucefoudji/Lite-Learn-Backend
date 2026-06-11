@@ -1,5 +1,5 @@
+from django.conf import settings
 from django.db import models
-from django.contrib.auth.models import User
 
 
 class LearnerProfile(models.Model):
@@ -10,7 +10,7 @@ class LearnerProfile(models.Model):
     ]
     THEME_CHOICES = [('light', 'Light'), ('dark', 'Dark'), ('system', 'System')]
 
-    user = models.OneToOneField(User, related_name='learner_profile', on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='learner_profile', on_delete=models.CASCADE)
     bio = models.CharField(max_length=280, blank=True)
     avatar_url = models.URLField(max_length=500, blank=True)
     avatar = models.ImageField(upload_to='profile-pictures/%Y/%m/', blank=True)
@@ -65,7 +65,7 @@ class Lesson(models.Model):
         return f"{self.course.title} - {self.title}"
 
 class Enrollment(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     date_enrolled = models.DateTimeField(auto_now_add=True)
 
