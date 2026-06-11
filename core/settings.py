@@ -170,3 +170,7 @@ if not DEBUG:
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
     CORS_ALLOW_ALL_ORIGINS = True
+   
+CSRF_TRUSTED_ORIGINS = [
+    'https://lite-learn-backend.onrender.com'
+]
