@@ -70,17 +70,17 @@ INSTALLED_APPS = [
     
     # Required Packages 
     'rest_framework',
-    'rest_framework.authtoken',  # Token authentication
+    'rest_framework.authtoken',  
     'corsheaders',
     
-    # Your App
+    # my App
     'courses',
 ]
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # WhiteNoise asset handling
+    'whitenoise.middleware.WhiteNoiseMiddleware',  
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -89,7 +89,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# REST Framework Configuration 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',  # Token auth for Angular
@@ -126,9 +125,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
-
-# Database
-# Use SQLite for development, but Render will use PostgreSQL 
+ 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -153,8 +150,6 @@ USE_I18N = True
 USE_TZ = True
 
 
-
-# Static files (CSS, JavaScript, Images)
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 

@@ -9,7 +9,6 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     
-    # All API routes (including /api/auth/login/ from courses.urls)
     path('api/', include('courses.urls')), 
 ]
 

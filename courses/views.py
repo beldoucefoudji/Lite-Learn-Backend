@@ -23,9 +23,6 @@ def user_payload(user):
         "is_superuser": user.is_superuser,
     }
 
-# ==========================================
-# USER REGISTRATION VIEW
-# ==========================================
 class RegisterView(APIView):
     permission_classes = [permissions.AllowAny]
 
@@ -47,9 +44,7 @@ class RegisterView(APIView):
             )
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-# ==========================================
-# NEW: USER LOGIN VIEW (TOKEN AUTHENTICATION)
-# ==========================================
+
 class LoginView(APIView):
     permission_classes = [permissions.AllowAny]
 
